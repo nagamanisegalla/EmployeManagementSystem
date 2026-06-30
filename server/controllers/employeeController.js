@@ -1,0 +1,51 @@
+const Employee = require("../models/Employee");
+
+// Create Employee
+const createEmployee = async (req, res) => {
+  try {
+    const employee =
+      await Employee.create(req.body);
+
+    res.status(201).json({
+      success: true,
+      employee,
+    });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: error.message,
+    });
+  }
+};
+
+// Get All Employees
+const getEmployees = async (req, res) => {
+  try {
+    const employees =
+      await Employee.find();
+
+    res.status(200).json({
+      success: true,
+      count: employees.length,
+      employees,
+    });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: error.message,
+    });
+  }
+};
+
+// Temporary placeholders
+const getEmployee = async (req, res) => {};
+const updateEmployee = async (req, res) => {};
+const deleteEmployee = async (req, res) => {};
+
+module.exports = {
+  createEmployee,
+  getEmployees,
+  getEmployee,
+  updateEmployee,
+  deleteEmployee,
+};

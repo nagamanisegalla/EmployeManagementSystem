@@ -6,6 +6,8 @@ dotenv.config();
 
 const connectDB = require("./config/db");
 const authRoutes = require("./routes/authRoutes");
+const employeeRoutes =
+  require("./routes/employeeRoutes");
 
 // Connect Database
 connectDB();
@@ -18,6 +20,10 @@ app.use(express.json());
 
 // Routes
 app.use("/api/auth", authRoutes);
+app.use(
+  "/api/employees",
+  employeeRoutes
+);
 
 // Default Route
 app.get("/", (req, res) => {
