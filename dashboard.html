@@ -1,57 +1,72 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Dashboard</title>
-    <link rel="stylesheet" href="css/dashboard.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Employee Dashboard</title>
+  <link rel="stylesheet" href="css/dashboard.css">
 </head>
 <body>
 
 <div class="container">
 
-    <div class="sidebar">
-        <h2>EMS</h2>
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <h2>EMS</h2>
 
-        <ul>
-            <li><a href="#">Dashboard</a></li>
-            <li><a href="employees.html">Employees</a></li>
-            <li><a href="attendance.html">Attendance</a></li>
-            <li><a href="leave.html">Leave</a></li>
-            <li><a href="#">Reports</a></li>
-            <li onclick="logout()">Logout</li>
-        </ul>
+    <ul>
+      <li><a href="dashboard.html">Dashboard</a></li>
+      <li><a href="employees.html">Employees</a></li>
+      <li><a href="attendance.html">Attendance</a></li>
+      <li><a href="leave.html">Leave</a></li>
+      <li onclick="logout()">Logout</li>
+    </ul>
+  </div>
+
+  <!-- Main Content -->
+  <div class="main">
+
+    <div class="navbar">
+      <h2 id="welcome"></h2>
     </div>
 
-    <div class="main">
+    <!-- Cards -->
+    <div class="cards">
 
-        <div class="navbar">
-            <h2 id="welcome"></h2>
-        </div>
+      <div class="card">
+        <h3>Total Employees</h3>
+        <p id="totalEmployees">0</p>
+      </div>
 
-        <div class="cards">
+      <div class="card">
+        <h3>Present Today</h3>
+        <p id="presentToday">0</p>
+      </div>
 
-            <div class="card">
-                <h3>Total Employees</h3>
-                <p>50</p>
-            </div>
+      <div class="card">
+        <h3>Absent Today</h3>
+        <p id="absentToday">0</p>
+      </div>
 
-            <div class="card">
-                <h3>Present Today</h3>
-                <p>40</p>
-            </div>
-
-            <div class="card">
-                <h3>Absent Today</h3>
-                <p>10</p>
-            </div>
-
-            <div class="card">
-                <h3>Pending Leaves</h3>
-                <p>5</p>
-            </div>
-
-        </div>
+      <div class="card">
+        <h3>Pending Leaves</h3>
+        <p id="pendingLeaves">0</p>
+      </div>
 
     </div>
+
+    <!-- Recent Activities -->
+    <div class="activities-container">
+
+      <h2>Recent Activities</h2>
+
+      <ul id="activities">
+
+      </ul>
+
+    </div>
+
+  </div>
 
 </div>
 
