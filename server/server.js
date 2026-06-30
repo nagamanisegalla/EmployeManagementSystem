@@ -15,6 +15,9 @@ const attendanceRoutes =
 const leaveRoutes =
   require("./routes/leaveRoutes");
 
+const dashboardRoutes =
+  require("./routes/dashboardRoutes");
+
 // Connect Database
 connectDB();
 
@@ -41,6 +44,11 @@ app.use(
   leaveRoutes
 );
 
+
+app.use(
+  "/api/dashboard",
+  dashboardRoutes
+);
 // Default Route
 app.get("/", (req, res) => {
   res.send("Employee Management API Running...");
