@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Employees</title>
+  <link rel="stylesheet" href="css/employees.css">
+</head>
+<body>
+
+  <div class="container">
+
+    <h1>Employee Management</h1>
+
+    <div class="form-container">
+
+      <input type="text" id="name" placeholder="Enter Name">
+
+      <input type="email" id="email" placeholder="Enter Email">
+
+      <input type="text" id="phone" placeholder="Enter Phone">
+
+      <input type="text" id="department" placeholder="Enter Department">
+
+      <input type="text" id="designation" placeholder="Enter Designation">
+
+      <input type="number" id="salary" placeholder="Enter Salary">
+
+      <button id="submitBtn" onclick="addEmployee()">
+        Add Employee
+      </button>
+
+    </div>
+
+    <input
+      type="text"
+      id="search"
+      placeholder="Search Employee"
+      onkeyup="searchEmployee()"
+    >
+
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Department</th>
+          <th>Designation</th>
+          <th>Salary</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+
+      <tbody id="employeeTable">
+
+      </tbody>
+    </table>
+
+  </div>
+
+  <script src="js/employees.js"></script>
+
+</body>
+</html>
