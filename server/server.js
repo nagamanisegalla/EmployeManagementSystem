@@ -12,6 +12,9 @@ const employeeRoutes =
 const attendanceRoutes =
   require("./routes/attendanceRoutes");
 
+const leaveRoutes =
+  require("./routes/leaveRoutes");
+
 // Connect Database
 connectDB();
 
@@ -31,6 +34,11 @@ app.use(
 app.use(
   "/api/attendance",
   attendanceRoutes
+);
+
+app.use(
+  "/api/leaves",
+  leaveRoutes
 );
 
 // Default Route
