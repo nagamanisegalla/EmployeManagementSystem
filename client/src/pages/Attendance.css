@@ -1,0 +1,54 @@
+.attendance-layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+.attendance-content {
+  flex: 1;
+  padding: 30px;
+  background: #f4f7fc;
+}
+
+.attendance-content h1 {
+  margin-bottom: 30px;
+}
+
+.attendance-content h2 {
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+
+table {
+  width: 100%;
+  background: white;
+  border-collapse: collapse;
+  margin-bottom: 30px;
+}
+
+th,
+td {
+  padding: 15px;
+  border: 1px solid #ddd;
+}
+
+th {
+  background: #4a6cf7;
+  color: white;
+}
+
+.present-btn {
+  background: green;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.absent-btn {
+  background: red;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  cursor: pointer;
+}
