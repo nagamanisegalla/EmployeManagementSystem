@@ -12,38 +12,46 @@ function Sidebar() {
     navigate("/");
   };
 
+  const user = JSON.parse(
+  localStorage.getItem("user")
+);
+
   return (
     <div className="sidebar">
       <h2>EMS</h2>
 
       <ul>
-        <li>
-          <Link to="/dashboard">
-            Dashboard
-          </Link>
-        </li>
+       <li>
+  <Link to="/dashboard">
+    Dashboard
+  </Link>
+</li>
 
-        <li>
-          <Link to="/employees">
-            Employees
-          </Link>
-        </li>
+{user?.role !== "Employee" && (
+  <li>
+    <Link to="/employees">
+      Employees
+    </Link>
+  </li>
+)}
 
-        <li>
-          <Link to="/attendance">
-            Attendance
-          </Link>
-        </li>
+{user?.role !== "Employee" && (
+  <li>
+    <Link to="/attendance">
+      Attendance
+    </Link>
+  </li>
+)}
 
-        <li>
-          <Link to="/leaves">
-            Leaves
-          </Link>
-        </li>
+<li>
+  <Link to="/leaves">
+    Leaves
+  </Link>
+</li>
 
-        <li onClick={handleLogout}>
-          Logout
-        </li>
+<li onClick={handleLogout}>
+  Logout
+</li>
       </ul>
     </div>
   );

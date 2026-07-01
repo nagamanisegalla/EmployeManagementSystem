@@ -168,8 +168,8 @@ function Leaves() {
                 <td>{leave.status}</td>
 
                 <td>
-                  {leave.status ===
-                    "Pending" && (
+                  {leave.status === "Pending" &&
+ user.role !== "Employee" && (
                     <>
                       <button
                         className="approve-btn"

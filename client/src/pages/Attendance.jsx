@@ -1,9 +1,19 @@
+import { Navigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Sidebar from "../components/Sidebar";
 import api from "../services/api";
 import "./Attendance.css";
 
 function Attendance() {
+
+  const user = JSON.parse(
+  localStorage.getItem("user")
+);
+
+if (user.role === "Employee") {
+  return <Navigate to="/dashboard" />;
+}
+
   const [employees, setEmployees] =
     useState([]);
 
