@@ -26,9 +26,13 @@ const protect = async (req, res, next) => {
       process.env.JWT_SECRET
     );
 
+    console.log("Decoded Token:", decoded)
+
     req.user = await User.findById(
       decoded.id
     ).select("-password");
+
+    console.log("Found User:", req.user)
 
     next();
   } catch (error) {

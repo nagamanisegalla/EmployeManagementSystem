@@ -4,7 +4,9 @@ import { AuthContext } from "../context/AuthContext";
 import "./Sidebar.css";
 
 function Sidebar() {
-  const { logout } = useContext(AuthContext);
+  const { user, logout } =
+    useContext(AuthContext);
+
   const navigate = useNavigate();
 
   const handleLogout = () => {
@@ -12,46 +14,47 @@ function Sidebar() {
     navigate("/");
   };
 
-  const user = JSON.parse(
-  localStorage.getItem("user")
-);
-
   return (
     <div className="sidebar">
       <h2>EMS</h2>
 
       <ul>
-       <li>
-  <Link to="/dashboard">
-    Dashboard
+        <li>
+          <Link to="/dashboard">
+            Dashboard
+          </Link>
+        </li>
+
+        {/* Admin and HR only */}
+        {user?.role !== "Employee" && (
+          <li>
+            <Link to="/employees">
+              Employees
+            </Link>
+          </li>
+        )}
+
+        <li>
+          <Link to="/attendance">
+            Attendance
+          </Link>
+        </li>
+
+        <li>
+  <Link to="/profile">
+    My Profile
   </Link>
 </li>
 
-{user?.role !== "Employee" && (
-  <li>
-    <Link to="/employees">
-      Employees
-    </Link>
-  </li>
-)}
+        <li>
+          <Link to="/leaves">
+            Leaves
+          </Link>
+        </li>
 
-{user?.role !== "Employee" && (
-  <li>
-    <Link to="/attendance">
-      Attendance
-    </Link>
-  </li>
-)}
-
-<li>
-  <Link to="/leaves">
-    Leaves
-  </Link>
-</li>
-
-<li onClick={handleLogout}>
-  Logout
-</li>
+        <li onClick={handleLogout}>
+          Logout
+        </li>
       </ul>
     </div>
   );

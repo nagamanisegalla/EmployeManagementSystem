@@ -8,6 +8,12 @@ const leaveSchema = new mongoose.Schema(
       required: true,
     },
 
+    leaveType: {
+      type: String,
+      required: true,
+      default: "Casual Leave",
+    },
+
     fromDate: {
       type: Date,
       required: true,
@@ -25,7 +31,11 @@ const leaveSchema = new mongoose.Schema(
 
     status: {
       type: String,
-      enum: ["Pending", "Approved", "Rejected"],
+      enum: [
+        "Pending",
+        "Approved",
+        "Rejected",
+      ],
       default: "Pending",
     },
   },

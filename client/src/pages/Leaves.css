@@ -1,16 +1,11 @@
-.leave-layout {
+.leaves-container {
   display: flex;
   min-height: 100vh;
 }
 
-.leave-content {
+.leaves-content {
   flex: 1;
   padding: 30px;
-  background: #f4f7fc;
-}
-
-.leave-content h1 {
-  margin-bottom: 30px;
 }
 
 .leave-form {
@@ -24,29 +19,35 @@
 .leave-form select,
 .leave-form button {
   padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
 }
 
 .leave-form button {
-  background: #4a6cf7;
+  background: #4f6df5;
   color: white;
   border: none;
   cursor: pointer;
 }
 
-table {
+.leave-form button:hover {
+  background: #3b57d1;
+}
+
+.leave-table {
   width: 100%;
-  background: white;
   border-collapse: collapse;
 }
 
-th,
-td {
+.leave-table th,
+.leave-table td {
   border: 1px solid #ddd;
-  padding: 15px;
+  padding: 12px;
+  text-align: center;
 }
 
-th {
-  background: #4a6cf7;
+.leave-table th {
+  background: #4f6df5;
   color: white;
 }
 
@@ -54,7 +55,7 @@ th {
   background: green;
   color: white;
   border: none;
-  padding: 8px 12px;
+  padding: 8px 15px;
   margin-right: 10px;
   cursor: pointer;
 }
@@ -63,6 +64,6 @@ th {
   background: red;
   color: white;
   border: none;
-  padding: 8px 12px;
+  padding: 8px 15px;
   cursor: pointer;
 }

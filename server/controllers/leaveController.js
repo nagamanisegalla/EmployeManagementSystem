@@ -1,5 +1,7 @@
 const Leave = require("../models/Leave");
+const Employee = require("../models/Employee");
 
+// Apply Leave
 const applyLeave = async (req, res) => {
   try {
     const leave = await Leave.create(req.body);
@@ -16,10 +18,24 @@ const applyLeave = async (req, res) => {
   }
 };
 
+// Get Leaves
 const getLeaves = async (req, res) => {
   try {
-    const leaves = await Leave.find()
-      .populate("employee");
+    let leaves;
+
+    if (req.user.role === "Employee") {
+      const employee =
+        await Employee.findOne({
+          email: req.user.email,
+        });
+
+      leaves = await Leave.find({
+        employee: employee._id,
+      }).populate("employee");
+    } else {
+      leaves = await Leave.find()
+        .populate("employee");
+    }
 
     res.status(200).json({
       success: true,
@@ -34,19 +50,15 @@ const getLeaves = async (req, res) => {
   }
 };
 
+// Update Leave Status
 const updateLeaveStatus = async (
   req,
   res
 ) => {
   try {
     const leave =
-      await Leave.findByIdAndUpdate(
-        req.params.id,
-        req.body,
-        {
-          new: true,
-          runValidators: true,
-        }
+      await Leave.findById(
+        req.params.id
       );
 
     if (!leave) {
@@ -56,8 +68,15 @@ const updateLeaveStatus = async (
       });
     }
 
+    leave.status =
+      req.body.status;
+
+    await leave.save();
+
     res.status(200).json({
       success: true,
+      message:
+        "Leave status updated",
       leave,
     });
   } catch (error) {

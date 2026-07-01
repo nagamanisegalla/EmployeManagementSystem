@@ -25,12 +25,14 @@ router.post(
 router.get(
   "/",
   protect,
+  authorize("Admin", "HR Manager"),
   getEmployees
 );
 
 router.get(
   "/:id",
   protect,
+  authorize("Admin", "HR Manager"),
   getEmployee
 );
 
